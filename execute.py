@@ -12,7 +12,7 @@ def main():
     body = f"""
 Panie Pawle,
 
-przesyłam dokumenty za okers {month}/{year}
+przesyłam dokumenty za okres {month}/{year}
 
 Pozdrawiam
 Kamil Kozik
