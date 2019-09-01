@@ -20,7 +20,6 @@ GOOGLE_DRIVE_SCOPES = [
 ]
 
 
-@property
 def o365_credentials():
     return O365_CLIENT_ID, O365_CLIENT_SECRET
 

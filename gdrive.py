@@ -72,7 +72,7 @@ def fetch_files():
         downloader = MediaIoBaseDownload(fh, request)
 
         done = False
-        while done:
+        while done == False:
             status, done = downloader.next_chunk()
             print(f"Download: {int(status.progress() * 100)}%")
         fh.seek(0)

@@ -10,11 +10,9 @@ def main():
     month, year = get_month_year()
     subject = f"Dokumenty za {month}/{year}"
     body = f"""
-Panie Pawle,
-
-przesyłam dokumenty za okres {month}/{year}
-
-Pozdrawiam
+Panie Pawle,<br><br>
+przesyłam dokumenty za okers {month}/{year}<br><br>
+Pozdrawiam<br>
 Kamil Kozik
 """
     send_mail(account, subject, body)

@@ -10,7 +10,7 @@ def init_o365(
         credentials: tuple = o365_credentials,
         token_path: str = O365_DEFAULT_TOKEN_PATH
 ):
-    account = Account(credentials, protocol=protocol)
+    account = Account(credentials(), protocol=protocol)
 
     if not account.is_authenticated and os.path.exists(token_path):
         account.con.refresh_token()
