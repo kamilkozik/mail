@@ -1,0 +1,6 @@
+.idea/
+__pycache__/
+
+token.pickle
+credentials.json
+o365_token.txt
