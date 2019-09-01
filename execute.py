@@ -4,6 +4,7 @@ from utils import get_month_year
 
 
 def main():
+    flush()
     fetch_files()
     account = init_o365()
     month, year = get_month_year()
@@ -17,7 +18,6 @@ Pozdrawiam
 Kamil Kozik
 """
     send_mail(account, subject, body)
-    flush()
 
 
 if __name__ == '__main__':
