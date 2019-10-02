@@ -11,7 +11,7 @@ def main():
     subject = f"Dokumenty za {month}/{year}"
     body = f"""
 Panie Pawle,<br><br>
-przesyłam dokumenty za okers {month}/{year}<br><br>
+przesyłam dokumenty za okres {month}/{year}<br><br>
 Pozdrawiam<br>
 Kamil Kozik
 """
