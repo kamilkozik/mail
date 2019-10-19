@@ -15,7 +15,7 @@ def main():
     body = dedent(
         f"""
             Panie Pawle,<br><br>
-            przesyłam dokumenty za okers {month}/{year}<br><br>
+            przesyłam dokumenty za okres {month}/{year}<br><br>
             Pozdrawiam<br>
             Kamil Kozik
         """
