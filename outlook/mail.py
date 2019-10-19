@@ -1,22 +1,9 @@
 import os
 
-from O365 import Account, MSOffice365Protocol
+from O365 import Account
 
-from consts import ATTACHMENTS_PATH, DEFAULT_RECIPIENT, o365_credentials, O365_DEFAULT_SCOPES, O365_DEFAULT_TOKEN_PATH
-
-
-def init_o365(
-        protocol: MSOffice365Protocol = MSOffice365Protocol(),
-        credentials: tuple = o365_credentials,
-        token_path: str = O365_DEFAULT_TOKEN_PATH
-):
-    account = Account(credentials(), protocol=protocol)
-
-    if not account.is_authenticated and os.path.exists(token_path):
-        account.con.refresh_token()
-    elif not account.is_authenticated:
-        account.authenticate(scopes=O365_DEFAULT_SCOPES, grant_type='client_credentials')
-    return account
+from outlook.const import DEFAULT_RECIPIENT
+from settings.base import ATTACHMENTS_PATH
 
 
 def compose_mail(
@@ -47,10 +34,6 @@ def compose_mail(
     return mail
 
 
-def gather_files():
-    return [os.path.join(ATTACHMENTS_PATH, path) for path in os.listdir(ATTACHMENTS_PATH)]
-
-
 def send_mail(
         account: Account,
         subject: str,
@@ -59,6 +42,6 @@ def send_mail(
         attachments: list = None
 ):
     if not attachments:
-        attachments = gather_files()
+        attachments = [os.path.join(ATTACHMENTS_PATH, path) for path in os.listdir(ATTACHMENTS_PATH)]
     message = compose_mail(account, to, subject, body, attachments)
     message.send()

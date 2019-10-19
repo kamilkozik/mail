@@ -2,36 +2,13 @@ from __future__ import print_function
 
 import io
 import os.path
-import pickle
 
-from google.auth.transport.requests import Request
-from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
-# If modifying these scopes, delete the file token.pickle.
 from googleapiclient.http import MediaIoBaseDownload
 
-from consts import ATTACHMENTS_PATH, GOOGLE_DRIVE_SCOPES
-from utils import get_month_year
-
-
-def get_credentials():
-    credentials = None
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
-            credentials = pickle.load(token)
-
-    # If there are no (valid) credentials available, let the user log in.
-    if not credentials or not credentials.valid:
-        if credentials and credentials.expired and credentials.refresh_token:
-            credentials.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', GOOGLE_DRIVE_SCOPES)
-            credentials = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open('token.pickle', 'wb') as token:
-            pickle.dump(credentials, token)
-    return credentials
+from storage.auth import get_credentials
+from settings.base import ATTACHMENTS_PATH
+from misc.utils import get_month_year
 
 
 def get_files_id_by_name(service, name, mime, exact=False):
@@ -66,7 +43,7 @@ def fetch_files():
         if 'folder' in item['mimeType']:
             continue
 
-        print(u'{0} ({1})'.format(item['name'], item['id']))
+        print(u'{0} ({1})'.format(item['name'], item['id']), end=" - ")
         request = service.files().get_media(fileId=item['id'])
         fh = io.BytesIO()
         downloader = MediaIoBaseDownload(fh, request)
@@ -84,6 +61,7 @@ def fetch_files():
 
 
 def flush():
-    for file in [os.path.join(ATTACHMENTS_PATH, f) for f in os.listdir(ATTACHMENTS_PATH)]:
-        os.remove(file)
-        print(f"Removed: {file.split('/')[-1]}")
+    if os.path.exists(ATTACHMENTS_PATH):
+        for file in [os.path.join(ATTACHMENTS_PATH, f) for f in os.listdir(ATTACHMENTS_PATH)]:
+            os.remove(file)
+            print(f"Removed: {file.split('/')[-1]}")
