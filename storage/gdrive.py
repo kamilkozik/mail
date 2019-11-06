@@ -6,9 +6,9 @@ import os.path
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 
-from storage.auth import get_credentials
-from settings.base import ATTACHMENTS_PATH
 from misc.utils import get_month_year
+from settings.base import ATTACHMENTS_PATH
+from storage.auth import get_credentials
 
 
 def get_files_id_by_name(service, name, mime, exact=False):
@@ -56,6 +56,13 @@ def fetch_files():
 
         if not os.path.exists(ATTACHMENTS_PATH):
             os.mkdir(ATTACHMENTS_PATH)
+        count = 1
+        while True:
+            if os.path.exists(os.path.join(ATTACHMENTS_PATH, item['name'])):
+                item['name'] = f'{count}' + item['name']
+            else:
+                break
+
         with open(os.path.join(ATTACHMENTS_PATH, item['name']), 'wb') as f:
             f.write(fh.read())
 
