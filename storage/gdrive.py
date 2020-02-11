@@ -31,9 +31,10 @@ def fetch_files():
 
     files = []
     for fid in ids:
-        for year_elem in filter(lambda o: o['name'] == year, get_files_by_parents_id(service, fid)):
+        for year_elem in filter(lambda o: o['name'] == str(year), get_files_by_parents_id(service, fid)):
             response = service.files().list(
-                q=f"'{year_elem['id']}' in parents and name='{month}'", fields="files(id, name, mimeType)"
+                q=f"'{year_elem['id']}' in parents and name='{month if month > 9 else f'0{month}'}'",
+                fields="files(id, name, mimeType)"
             ).execute()
 
             for end_file in response.get('files', []):
