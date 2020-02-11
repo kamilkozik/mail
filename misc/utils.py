@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 
 def get_month_year():
     date_today = datetime.today()
-    month = (date_today - timedelta(days=27)).strftime("%m")
-    year = date_today.strftime("%Y")
+    date_today = date_today - timedelta(days=date_today.day)
+    month = date_today.month
+    year = date_today.year
     return month, year
