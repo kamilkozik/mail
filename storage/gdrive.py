@@ -7,8 +7,12 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 
 from misc.utils import get_month_year
-from settings.base import ATTACHMENTS_PATH
+from settings import ATTACHMENTS_PATH
 from storage.auth import get_credentials
+from utils import get_logger
+
+
+logger = get_logger(__name__)
 
 
 def get_files_id_by_name(service, name, mime, exact=False):
@@ -44,7 +48,7 @@ def fetch_files():
         if 'folder' in item['mimeType']:
             continue
 
-        print(u'{0} ({1})'.format(item['name'], item['id']), end=" - ")
+        logger.info(u'{0} ({1})'.format(item['name'], item['id']))
         request = service.files().get_media(fileId=item['id'])
         fh = io.BytesIO()
         downloader = MediaIoBaseDownload(fh, request)
@@ -52,7 +56,6 @@ def fetch_files():
         done = False
         while done == False:
             status, done = downloader.next_chunk()
-            print(f"Download: {int(status.progress() * 100)}%")
         fh.seek(0)
 
         if not os.path.exists(ATTACHMENTS_PATH):
@@ -72,4 +75,4 @@ def flush():
     if os.path.exists(ATTACHMENTS_PATH):
         for file in [os.path.join(ATTACHMENTS_PATH, f) for f in os.listdir(ATTACHMENTS_PATH)]:
             os.remove(file)
-            print(f"Removed: {file.split('/')[-1]}")
+            logger.info(f"Removed: {file.split('/')[-1]}")

@@ -2,8 +2,7 @@ import os
 
 from O365 import Account
 
-from outlook.const import DEFAULT_RECIPIENT
-from settings.base import ATTACHMENTS_PATH
+from settings import ATTACHMENTS_PATH, DEFAULT_RECIPIENT
 
 
 def compose_mail(
@@ -42,6 +41,6 @@ def send_mail(
         attachments: list = None
 ):
     if not attachments:
-        attachments = [os.path.join(ATTACHMENTS_PATH, path) for path in os.listdir(ATTACHMENTS_PATH)]
+        attachments = [ATTACHMENTS_PATH / path for path in os.listdir(ATTACHMENTS_PATH)]
     message = compose_mail(account, to, subject, body, attachments)
     message.send()

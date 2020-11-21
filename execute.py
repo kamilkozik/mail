@@ -1,9 +1,9 @@
 from textwrap import dedent
 
-from outlook.auth import init_o365
-from storage.gdrive import fetch_files, flush
-from outlook.mail import send_mail
 from misc.utils import get_month_year
+from outlook.auth import init_o365
+from outlook.mail import send_mail
+from storage.gdrive import fetch_files, flush
 
 
 def main():

@@ -7,3 +7,5 @@ static/
 *token.pickle
 *credentials.json
 *o365_token.txt
+
+*.log

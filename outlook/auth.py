@@ -1,19 +1,20 @@
 import os
+from pathlib import Path
 from typing import Callable, List
 
 from O365 import MSOffice365Protocol, Account, FileSystemTokenBackend
 
-from outlook.const import O365_DEFAULT_TOKEN_PATH, O365_DEFAULT_SCOPES, O365_DEFAULT_TOKEN_FILE_NAME
+from settings import O365_DEFAULT_SCOPES, O365_DEFAULT_TOKEN_PATH, O365_DEFAULT_TOKEN_FILE_NAME
 from outlook.utils import o365_credentials
 
 
 def init_o365(
         protocol: MSOffice365Protocol = MSOffice365Protocol(),
         credentials: Callable = o365_credentials,
-        token_path: str = O365_DEFAULT_TOKEN_PATH,
+        token_path: Path = O365_DEFAULT_TOKEN_PATH,
         scopes: List[str] = O365_DEFAULT_SCOPES
 ):
-    token_backend = FileSystemTokenBackend(token_path=os.path.join(token_path, O365_DEFAULT_TOKEN_FILE_NAME))
+    token_backend = FileSystemTokenBackend(token_path=token_path / O365_DEFAULT_TOKEN_FILE_NAME)
     account = Account(credentials(), protocol=protocol, token_backend=token_backend)
 
     if not account.is_authenticated and os.path.exists(os.path.join(token_path, O365_DEFAULT_TOKEN_FILE_NAME)):
