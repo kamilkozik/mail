@@ -2,6 +2,7 @@ from __future__ import print_function
 
 import io
 import os.path
+from pathlib import Path
 
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
@@ -73,6 +74,6 @@ def fetch_files():
 
 def flush():
     if os.path.exists(ATTACHMENTS_PATH):
-        for file in [os.path.join(ATTACHMENTS_PATH, f) for f in os.listdir(ATTACHMENTS_PATH)]:
+        for file in [ATTACHMENTS_PATH / f for f in os.listdir(ATTACHMENTS_PATH) if f != ".gitkeep"]:
             os.remove(file)
             logger.info(f"Removed: {file.split('/')[-1]}")
