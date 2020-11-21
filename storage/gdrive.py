@@ -76,4 +76,4 @@ def flush():
     if os.path.exists(ATTACHMENTS_PATH):
         for file in [ATTACHMENTS_PATH / f for f in os.listdir(ATTACHMENTS_PATH) if f != ".gitkeep"]:
             os.remove(file)
-            logger.info(f"Removed: {file.split('/')[-1]}")
+            logger.info(f"Removed: {file.name}")
