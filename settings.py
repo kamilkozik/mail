@@ -1,39 +1,17 @@
-import os
 from pathlib import Path
 
 
-# # # # # # # # # # #
-#      GENERAL      #
-# # # # # # # # # # #
+ROOT_DIR = Path(__file__).parent
 
-ROOT_DIR = Path(".")
-LOG_DIR = ROOT_DIR / "logs"
-LOG_FORMAT = "%(asctime)s %(levelname)s %(module)s %(message)s"
-STATIC_PATH = ATTACHMENTS_PATH = ROOT_DIR / 'static'
+GOOGLE_CREDENTIALS_PATH = ROOT_DIR / 'data' / 'credentials.json'
+GOOGLE_TOKEN_PATH = ROOT_DIR / 'data' / 'token.json'
+GOOGLE_INVOICES_BOUGHT_FOLDER = 'faktury kupna'
+GOOGLE_INVOICES_SOLD_FOLDER = 'faktury sprzedaży'
 
+O365_TOKEN_PATH = ROOT_DIR / 'data' / 'o365_token.txt'
 
-# # # # # # # # # # #
-#      OUTLOOK      #
-# # # # # # # # # # #
+INVOICES_TARGET_BOUGHT_PATH = ROOT_DIR / 'tmp' / GOOGLE_INVOICES_BOUGHT_FOLDER
+INVOICES_TARGET_SOLD_PATH = ROOT_DIR / 'tmp' / GOOGLE_INVOICES_SOLD_FOLDER
 
-O365_CLIENT_ID = os.getenv("O365_CLIENT_ID", None)
-O365_CLIENT_SECRET = os.getenv("O365_CLIENT_SECRET", None)
-O365_DEFAULT_SCOPES = ['basic', 'message_all']
-O365_DEFAULT_TOKEN_PATH = ROOT_DIR / 'usr'
-O365_DEFAULT_TOKEN_FILE_NAME = 'o365_token.txt'
-
-
-# # # # # # # # # # #
-#      GOOGLE       #
-# # # # # # # # # # #
-
-DEFAULT_RECIPIENT = 'kamil.kozik@outlook.com'
-GOOGLE_DRIVE_SCOPES = [
-    'https://www.googleapis.com/auth/drive.metadata.readonly',
-    'https://www.googleapis.com/auth/drive.activity.readonly',
-    'https://www.googleapis.com/auth/drive.readonly'
-]
-GOOGLE_CREDENTIALS_PATH = ROOT_DIR / 'usr' / 'credentials.json'
-GOOGLE_TOKEN_PICKLE_PATH = ROOT_DIR / 'usr'
-GOOGLE_TOKEN_PICKLE_FILE_NAME = 'token.pickle'
-GOOGLE_TOKEN_PICKLE_FILE_PATH = GOOGLE_TOKEN_PICKLE_PATH / GOOGLE_TOKEN_PICKLE_FILE_NAME
+INVOICES_TARGET_BOUGHT_PATH.mkdir(exist_ok=True)
+INVOICES_TARGET_SOLD_PATH.mkdir(exist_ok=True)

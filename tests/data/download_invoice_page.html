@@ -1,0 +1,420 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Podgląd faktury</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=yes, width=device-width, maximum-scale=1, minimum-scale=0">
+    <link rel="apple-touch-icon" href="/img/apple_android/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/apple_android/apple-touch-icon-precomposed.png">
+    <link rel='shortcut icon' type='image/x-icon' href='/img/favicons/Taxxo_favicon.ico' />
+    <link href="/dist/site.css?v=2.0.7944.19404.314022019" rel="stylesheet" type="text/css" media="screen, projection" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap&v=2.0.7944.19404.314022019" rel="stylesheet" type="text/css" media="screen, projection" />
+
+    <script src="/dist/vendor.js?v=2.0.7944.19404.314022019" ></script>
+<script src="/dist/generalBundle.js?v=2.0.7944.19404.314022019" ></script>
+<script src="/dist/gridAndFormsBundle.js?v=2.0.7944.19404.314022019" ></script>
+<script src="/dist/gridAndForms.js?v=2.0.7944.19404.314022019" ></script>
+<script src="/libs/kendo/js/cultures/kendo.culture.pl-PL.min.js?v=2.0.7944.19404.314022019" ></script>
+<script src="/libs/kendo/js/messages/kendo.messages.pl-PL.min.js?v=2.0.7944.19404.314022019" ></script>
+<script src="/dist/resources/pl-PL.js?v=2.0.7944.19404.314022019" ></script>
+
+    <!--[if IE]>
+    <link href="css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
+</head>
+
+<body class="generic">
+    <div class="navbar navbar-top">
+        <div class="inner">
+            <div class="box logo desktop Taxxo pl">
+                <a id="logo" href="https://platforma2.taxxo.pl/"></a>
+            </div>
+            <div class="box languages">
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=pl&amp;ServerDistributionKey=240" class="tooltip-bottom flag pl" title="Polski"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=en&amp;ServerDistributionKey=240" class="tooltip-bottom flag en" title="English"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=de&amp;ServerDistributionKey=240" class="tooltip-bottom flag de" title="Deutsch"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=cs&amp;ServerDistributionKey=240" class="tooltip-bottom flag cs" title="Čeština"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=fr&amp;ServerDistributionKey=240" class="tooltip-bottom flag fr" title="French"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=es&amp;ServerDistributionKey=240" class="tooltip-bottom flag es" title="Español"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=ru&amp;ServerDistributionKey=240" class="tooltip-bottom flag ru" title="Russian"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=it&amp;ServerDistributionKey=240" class="tooltip-bottom flag it" title="Italian"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=uk&amp;ServerDistributionKey=240" class="tooltip-bottom flag uk" title="Ukraine"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=sv&amp;ServerDistributionKey=240" class="tooltip-bottom flag sv" title="Swedish"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=da&amp;ServerDistributionKey=240" class="tooltip-bottom flag da" title="Danish"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=fi&amp;ServerDistributionKey=240" class="tooltip-bottom flag fi" title="Finnish"></a>
+                        <a href="https://platforma2.taxxo.pl/ZewnetrznyPodgladFaktury.aspx?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Lang=nb&amp;ServerDistributionKey=240" class="tooltip-bottom flag nb" title="Norwegian"></a>
+
+            </div>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="content">
+
+
+
+
+
+
+
+
+
+<div class="separator separator10"></div>
+
+
+
+
+
+
+
+
+
+    <div class="action-bar-contaner tabs-container">
+        <div id="b3005ee485024ff8a2398b50b14ddc63" name="b3005ee485024ff8a2398b50b14ddc63" class="action-bar bg-dark" data-grid-name="">
+            <div class="cell actions">
+                <ul id="b3005ee485024ff8a2398b50b14ddc63Actions" class="menu tabs-menu droptabs">
+                            <li class="action mainaction toolbar "
+
+                                id="Action_OpenPopupFromAction"
+                                onClick="ExecuteAction(this)"
+                                style=''
+
+                                data-column=""
+                                data-icon=""
+                                data-text-template="Zapisz fakturę w swojej skrzynce TaxxoBox"
+                                data-action-grid-name="Grid"
+                                data-action-edit-form-name=""
+                                data-action-refresh="gridandcounters"
+                                data-action-function="OpenPopupFromAction"
+                                data-action-function-args="{&quot;PopupName&quot;:&quot;StaticHtmlContentPopup&quot;,&quot;QueryString&quot;:&quot;Key=RegisterAccountMarketingContent&amp;Title=Dostajesz faktury od dostawców e-mailem? Zrób z nimi porządek&quot;}"
+                                data-action-type="SelectionIndependent"
+                                data-action-scope="OnlyVisible">
+
+                                <a href="#" class="tooltip-top" title="Internetowa skrzynka na faktury od Twoich dostawców - wygodne archiwum faktur dostępne online. Aktywuj bezpłatne konto.">
+                                    Zapisz fakturę w swojej skrzynce TaxxoBox
+                                </a>
+
+                            </li>
+                            <li class="action mainaction toolbar "
+
+                                id="Action_Action_RedirectToURL"
+                                onClick="ExecuteAction(this)"
+                                style='display: none;'
+
+                                data-column=""
+                                data-icon=""
+                                data-text-template="Zaloguj"
+                                data-action-grid-name="Grid"
+                                data-action-edit-form-name=""
+                                data-action-refresh="gridandcounters"
+                                data-action-function="Action_RedirectToURL"
+                                data-action-function-args="{&quot;URL&quot;:&quot;https://platforma2.taxxo.pl/LogoutUser.aspx?withoutNotification=true&amp;returnUrl=https%3a%2f%2fplatforma2.taxxo.pl%2fTX20%2fListaDokumentow.aspx%3fTab%3dAll%26TextSearch_Filter%3dFV&#x2B;00001%2f09%2f2021&quot;}"
+                                data-action-type="SelectionIndependent"
+                                data-action-scope="OnlyVisible">
+
+                                <a href="#" class="tooltip-top">
+                                    Zaloguj
+                                </a>
+
+                            </li>
+                            <li class="action mainaction toolbar "
+
+                                id="Action_downloadCurrentInvoice"
+                                onClick="ExecuteAction(this)"
+                                style=''
+
+                                data-column=""
+                                data-icon=""
+                                data-text-template="Pobierz jako PDF"
+                                data-action-grid-name="Grid"
+                                data-action-edit-form-name=""
+                                data-action-refresh="gridandcounters"
+                                data-action-function="downloadCurrentInvoice"
+                                data-action-function-args="null"
+                                data-action-type="SelectionIndependent"
+                                data-action-scope="OnlyVisible">
+
+                                <a href="#" class="tooltip-top">
+                                    Pobierz jako PDF
+                                </a>
+
+                            </li>
+                            <li class="action mainaction toolbar "
+
+                                id="Action_OpenPopupFromAction"
+                                onClick="ExecuteAction(this)"
+                                style='display: none;'
+
+                                data-column=""
+                                data-icon=""
+                                data-text-template="Dodaj tę fakturę do kosztów"
+                                data-action-grid-name="Grid"
+                                data-action-edit-form-name=""
+                                data-action-refresh="gridandcounters"
+                                data-action-function="OpenPopupFromAction"
+                                data-action-function-args="{&quot;PopupName&quot;:&quot;LoginPopup&quot;,&quot;QueryString&quot;:&quot;SuccessFunction=addInvoiceToDocuments&amp;ExpectedNIP=951-229-90-01&amp;SuggestedLogin=&quot;}"
+                                data-action-type="SelectionIndependent"
+                                data-action-scope="OnlyVisible">
+
+                                <a href="#" class="tooltip-top">
+                                    Dodaj tę fakturę do kosztów
+                                </a>
+
+                            </li>
+                            <li class="action mainaction toolbar "
+
+                                id="Action_OpenPopupFromAction"
+                                onClick="ExecuteAction(this)"
+                                style='display: none;'
+
+                                data-column=""
+                                data-icon=""
+                                data-text-template="Dodaj wszystkie faktury tego dostawcy do kosztów"
+                                data-action-grid-name="Grid"
+                                data-action-edit-form-name=""
+                                data-action-refresh="gridandcounters"
+                                data-action-function="OpenPopupFromAction"
+                                data-action-function-args="{&quot;PopupName&quot;:&quot;LoginPopup&quot;,&quot;QueryString&quot;:&quot;SuccessFunction=addAllInvoicesToDocuments&amp;ExpectedNIP=951-229-90-01&amp;SuggestedLogin=&quot;}"
+                                data-action-type="SelectionIndependent"
+                                data-action-scope="OnlyVisible">
+
+                                <a href="#" class="tooltip-top">
+                                    Dodaj wszystkie faktury tego dostawcy do kosztów
+                                </a>
+
+                            </li>
+                            <li class="action mainaction toolbar "
+
+                                id="Action_createOnlinePayment"
+                                onClick="ExecuteAction(this)"
+                                style='display: none;'
+
+                                data-column=""
+                                data-icon=""
+                                data-text-template="Opłać online"
+                                data-action-grid-name="Grid"
+                                data-action-edit-form-name=""
+                                data-action-refresh="gridandcounters"
+                                data-action-function="createOnlinePayment"
+                                data-action-function-args="{&quot;IDCustomer&quot;:21359,&quot;GUID&quot;:&quot;93a34bd8-9840-4085-9b17-13213bfd04d9&quot;}"
+                                data-action-type="SelectionIndependent"
+                                data-action-scope="OnlyVisible">
+
+                                <a href="#" class="tooltip-top">
+                                    Opłać online
+                                </a>
+
+                            </li>
+                            <li id="OnlinePaymentActionGroup"
+                                class="parent mainaction action toolbar action-group"
+                                style='display: none;'
+                                >
+                                <a href="javascript:void(0);">Płatności online</a>
+                                <ul class="subactions">
+                                        <li class="action toolbar subaction"
+
+                                            id="Action_checkOnlinePaymentStatus"
+                                            onClick="ExecuteAction(this)"
+                                            style='display: none;'
+
+                                            data-column=""
+                                            data-icon=""
+                                            data-text-template="Sprawdź status płatności online"
+                                            data-action-grid-name="Grid"
+                                            data-action-edit-form-name=""
+                                            data-action-function="checkOnlinePaymentStatus"
+                                            data-action-refresh="gridandcounters"
+                                            data-action-function-args="{&quot;IDCustomer&quot;:21359,&quot;GUID&quot;:&quot;93a34bd8-9840-4085-9b17-13213bfd04d9&quot;}"
+                                            data-action-type="SelectionIndependent"
+                                            data-action-scope="OnlyVisible">
+                                            <a href="#" class="tooltip-top">Sprawdź status płatności online</a>
+                                        </li>
+                                        <li class="action toolbar subaction"
+
+                                            id="Action_continueOnlinePayment"
+                                            onClick="ExecuteAction(this)"
+                                            style='display: none;'
+
+                                            data-column=""
+                                            data-icon=""
+                                            data-text-template="Kontynuuj płatność online "
+                                            data-action-grid-name="Grid"
+                                            data-action-edit-form-name=""
+                                            data-action-function="continueOnlinePayment"
+                                            data-action-refresh="gridandcounters"
+                                            data-action-function-args="{&quot;IDCustomer&quot;:21359,&quot;GUID&quot;:&quot;93a34bd8-9840-4085-9b17-13213bfd04d9&quot;}"
+                                            data-action-type="SelectionIndependent"
+                                            data-action-scope="OnlyVisible">
+                                            <a href="#" class="tooltip-top">Kontynuuj płatność online </a>
+                                        </li>
+                                        <li class="action toolbar subaction"
+
+                                            id="Action_cancelOnlinePayment"
+                                            onClick="ExecuteAction(this)"
+                                            style='display: none;'
+
+                                            data-column=""
+                                            data-icon=""
+                                            data-text-template="Anuluj płatność online"
+                                            data-action-grid-name="Grid"
+                                            data-action-edit-form-name=""
+                                            data-action-function="cancelOnlinePayment"
+                                            data-action-refresh="gridandcounters"
+                                            data-action-function-args="{&quot;IDCustomer&quot;:21359,&quot;GUID&quot;:&quot;93a34bd8-9840-4085-9b17-13213bfd04d9&quot;}"
+                                            data-action-type="SelectionIndependent"
+                                            data-action-scope="OnlyVisible">
+                                            <a href="#" class="tooltip-top">Anuluj płatność online</a>
+                                        </li>
+                                </ul>
+                            </li>
+                    <li class="link dropdown pull-right">
+                        <a href="#" id="ToolbarTabDrop" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="ToolbarTabDrop"></ul>
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+<script>
+    loadDroptabs('#b3005ee485024ff8a2398b50b14ddc63.action-bar .actions')
+    //# sourceURL=b3005ee485024ff8a2398b50b14ddc63Toolbar.js
+</script>
+    <div data-document-list-url="https://platforma2.taxxo.pl/TX20/ListaDokumentow.aspx"
+         id="invoice-preview"
+         data-customer="21359"
+         data-invoice="48"
+         data-guid="93a34bd8-9840-4085-9b17-13213bfd04d9"
+         data-buyer-data="{&quot;UserName&quot;:null,&quot;UserSurname&quot;:null,&quot;CustomerName&quot;:&quot;JMR Technologies Sp. z o.o.&quot;,&quot;AccountingOfficeName&quot;:null,&quot;NIP&quot;:&quot;951-229-90-01&quot;,&quot;PhoneNo&quot;:&quot;&quot;,&quot;Email&quot;:&quot;kamil.kozik@outlook.com&quot;,&quot;IsAccOfficeAccount&quot;:false,&quot;Typ&quot;:&quot;&quot;,&quot;IsCustomerService&quot;:false,&quot;Mode&quot;:&quot;&quot;,&quot;DataSourceFilter&quot;:null,&quot;DataSourceSort&quot;:null,&quot;DataSourceURL&quot;:null,&quot;ID&quot;:0,&quot;PreviousURL&quot;:null,&quot;Tab&quot;:null,&quot;ExpandedPanels&quot;:null,&quot;Lang&quot;:null,&quot;ActionJS&quot;:null,&quot;PagerMode&quot;:0,&quot;IDCustomer&quot;:null,&quot;IDCustomerOwner&quot;:null,&quot;IDTaxDeclatarion&quot;:null}"
+         data-buyer-document-url=""
+         data-duplicateDate=""
+         data-refresh="False">
+        <iframe src="https://platforma2.taxxo.pl/InvoicesPreview/File.pdf?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Format=HTML&amp;DuplicateDate=&amp;refresh=False&amp;ServerDistributionKey=240" data-src="https://platforma2.taxxo.pl/InvoicesPreview/File.pdf?IDCustomer=21359&amp;GUID=93a34bd8-9840-4085-9b17-13213bfd04d9&amp;Format=HTML&amp;DuplicateDate=&amp;refresh=False&amp;ServerDistributionKey=240" style="width: 100%; min-height: 800px;" onload="resizeIframe(this)"></iframe>
+    </div>
+
+<script>
+    function resizeIframe(obj) {
+        try {
+            obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+        } catch (ex) { }
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        if (false) {
+            var queryParams = getQueryParams();
+            if (queryParams["InitFunc"]) {
+                window[queryParams["InitFunc"]]();
+            }
+        }
+    })
+</script>
+
+            <!--begin popup-->
+            <div class="overlay">
+                <div class="overlay-container">
+                    <div class="overlay-content" id="overlayContent">
+                    </div>
+                </div>
+            </div>
+            <!--end popup-->
+        </div>
+    </div>
+    <div class="navbar navbar-bottom full no-notifications">
+        <div class="inner">
+
+
+
+
+
+
+<div class="box contact expandable expandble-floating" style="">
+    <div class="contact-menu-container menu-container bg-teal scroll">
+        <div class="contact-menu">
+                            <div class="row">
+                    <div class="icon-bg bg-teal-light">
+                        <i class="fa fa-info"></i>
+                    </div>
+                    <div class="details">
+                        <h3>Kontakt z Taxxo</h3>
+
+                            <p class="icon">
+                                <i class="fa fa-fw fa-phone"></i>0 801 022 244
+                            </p>
+                                                    <p class="icon">
+                                <i class="fa fa-fw fa-phone"></i>71 716 66 67
+                            </p>
+                        <a href="https://platforma2.taxxo.pl/ZglosProblem.aspx" class="button">Zgłoś problem</a>
+                        <br />
+                        <a href="https://sugestie.taxxo.pl/" class="button">Dodaj sugestię</a>
+                    </div>
+                </div>
+                            <div class="row">
+                    <div class="icon-bg bg-teal-light">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <div class="details">
+                        <h3>Baza wiedzy</h3>
+                        <a target="_blank" href="https://bazawiedzy.taxxo.pl" class="button">Wyszukaj w bazie wiedzy</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <a href="#" class="bg-teal toggable" id="contactMenuButton">
+        <div class="name">
+            <span class="bold">Kontakt/Pomoc</span>
+        </div>
+    </a>
+    <!--BEGIN ELEMENT FOR GENERIC PAGES ONLY-->
+    <a href="#" class="bg-teal toggable" id="contactMenuButtonLink">
+        <div class="name">
+            <span class="bold">Kontakt/Pomoc</span>
+        </div>
+    </a>
+    <!--END-->
+</div>
+
+
+            <!--begin notification-->
+            <div class="box notifications bottom-notifications n">
+            </div>
+            <!--end notification-->
+        </div>
+    </div>
+
+    <script>
+        function initApplication() {
+
+            ESPCore.application.name = "Taxxo";
+            ESPCore.application.culture = "pl-PL";
+            ESPCore.application.version = "2.34";
+            ESPCore.application.url = "https://platforma2.taxxo.pl/";
+            ESPCore.application.site.url = "https://platforma2.taxxo.pl/TX20/";
+            ESPCore.application.page.url = "https://platforma2.taxxo.pl/MyInvoice.aspx";
+            ESPCore.application.debugMode = false;
+            ESPCore.application.isMobile = "False";
+            ESPCore.application.signalRStatus = "2";
+
+            kendo.culture(ESPCore.application.culture);
+        }
+        initApplication();
+        initGoogleAnalytics('UA-85341955-1', '_gaq.push([\u0027_setDomainName\u0027, \u0027none\u0027]);');
+
+        $(document).ready(function () {
+            kendo.culture("pl-PL");
+        });
+    </script>
+</body>
+</html>

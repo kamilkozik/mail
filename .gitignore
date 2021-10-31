@@ -3,9 +3,14 @@ __pycache__/
 
 files/
 static/
+tmp/
+.python-version
+./.pytest_cache/
+./logs/
 
 *token.pickle
-*credentials.json
-*o365_token.txt
+*token.json
+data/credentials.json
+data/o365_token.txt
 
 *.log
