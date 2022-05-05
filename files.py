@@ -35,7 +35,6 @@ class FileMeta(AbstractFileMeta):
     def __init__(self, file_path: pathlib.Path):
         self.path = file_path
 
-
     @property
     def mime_type(self) -> str:
         return guess_file_mime_type(self.path)

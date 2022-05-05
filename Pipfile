@@ -13,6 +13,7 @@ google-api-python-client = "*"
 google-auth-httplib2 = "*"
 google-auth-oauthlib = "*"
 click = "*"
+python-magic = "0.4.24"
 
 [dev-packages]
 ipython = "7.27.0"

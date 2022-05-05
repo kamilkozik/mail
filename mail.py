@@ -1,5 +1,13 @@
 import datetime
+import os
 import pathlib
+import smtplib
+from concurrent.futures import ThreadPoolExecutor
+from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.utils import formatdate
+from smtpd import COMMASPACE
 from typing import List
 
 import O365.mailbox
@@ -10,14 +18,19 @@ from O365 import FileSystemTokenBackend
 
 from ksbr import download_ksbr_invoice
 from logger import get_logger
-from settings import O365_TOKEN_PATH, INVOICES_TARGET_BOUGHT_PATH, \
-    INVOICES_TARGET_SOLD_PATH
+from settings import O365_TOKEN_PATH
 
+# SECRET = os.environ.get('OUTLOOK_SECRET')
 SECRET = 'N9R7Q~4Cus_2DemW8d1hflaiCsIoBWX7hGAsk'
+# CLIENT = os.environ.get('OUTLOOK_CLIENT')
 CLIENT = 'd9168cad-34e2-431a-adfd-ab617b4568f6'
 SCOPES = ['basic', 'message_all']
-FOLDERS = ['Volkswagen', 'Orange', 'Leaselink - Laptop', 'Ksbr', 'BNP Paribas']
-RECEIVED_DATE_TIME = datetime.datetime(year=2021, month=10, day=1, tzinfo=pytz.UTC)
+FOLDERS = ['Volkswagen', 'Orange', 'Leaselink - Laptop', 'Ksbr']
+JMR_EMAIL_ADDRESS = 'fakturyb2b@jmr.pl'
+JMR_SUBJECT = '{date}'
+
+
+logger = get_logger(pathlib.Path(__file__).name)
 
 
 class AuthenticationFailure(Exception):
@@ -87,7 +100,7 @@ class OutlookMail:
             messages.extend(list(folder.get_messages(query=query)))
         return messages
 
-    def download_attachments(self, message: O365.message.Message, path: pathlib.Path):
+    def download_message_attachments(self, message: O365.message.Message, path: pathlib.Path):
         message.attachments.download_attachments()
         for attachment in message.attachments:
             if attachment.name.split('.')[-1].lower() in ['pdf']:
@@ -98,14 +111,52 @@ class OutlookMail:
             self,
             account,
             since: datetime.datetime,
-            till: datetime.datetime
+            till: datetime.datetime,
+            bought_directory: pathlib.Path,
+            sold_directory: pathlib.Path,
     ):
         since = pytz.utc.localize(since)
         till = pytz.utc.localize(till)
         folders = self.get_folders(account)
         messages = self.get_mails_with_attachments_by_folders(folders, since, till)
 
-        for message in messages:
-            self.download_attachments(message, INVOICES_TARGET_BOUGHT_PATH)
+        with ThreadPoolExecutor(max_workers=10) as pool:
+            threads = [
+                pool.submit(self.download_message_attachments, message, bought_directory)
+                for message in messages
+            ]
+            threads.append(pool.submit(download_ksbr_invoice, messages, sold_directory, since))
 
-        download_ksbr_invoice(messages, INVOICES_TARGET_SOLD_PATH, since)
+            for thread in threads:
+                thread.result()
+
+
+def send_mail(sender: str, recipients: List[str], subject: str, body: str, attachments: List[pathlib.Path]):
+    logger.info(f"Sending <Email: subject='{subject}' to={recipients} attachments={attachments}/>")
+    attachments = get_attachments(file_paths=attachments)
+    message = MIMEMultipart()
+    message['From'] = sender
+    message['To'] = COMMASPACE.join(recipients)
+    message['Date'] = formatdate(localtime=True)
+    message['Subject'] = subject
+    message.attach(MIMEText(body))
+
+    for att in attachments:
+        message.attach(att)
+
+    smtp = smtplib.SMTP('smtp.office365.com', 587)
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.login('kamil.kozik@outlook.com', '9d52cd9c49667e1b2078561715a62872')
+    smtp.sendmail(sender, recipients, message.as_string())
+    smtp.close()
+
+
+def get_attachments(file_paths: List[pathlib.Path]) -> List[MIMEApplication]:
+    attachments = []
+    for file_path in file_paths:
+        with open(file_path, 'br') as f:
+            att = MIMEApplication(f.read(), Name=file_path.name)
+            att['Content-Disposition'] = f'attachment; filename="{file_path.name}"'
+            attachments.append(att)
+    return attachments

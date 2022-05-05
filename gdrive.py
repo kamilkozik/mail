@@ -1,12 +1,13 @@
 from __future__ import print_function
 
+import io
 import pathlib
 from typing import List
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.http import MediaFileUpload
+from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
 
 from files import FileMeta, GoogleFileMeta, GoogleMimeTypes
 from logger import get_logger
@@ -142,6 +143,16 @@ class GoogleDrive:
         :return: None
         """
         raise NotImplemented()
+
+    def download_file(self, file_object: GoogleFileMeta, target: pathlib.Path) -> None:
+        request = self.service.files().get_media(fileId=file_object.object_id)
+        target_file_path = target / file_object.name
+        fh = io.FileIO(str(target_file_path), 'wb')
+        downloader = MediaIoBaseDownload(fh, request, chunksize=5 * 1024 * 1024)
+        done = False
+        while done is False:
+            _, done = downloader.next_chunk()
+            self.logger.info(f"Downloading {file_object.name}")
 
     def iterate_folder_content(self, folder_meta: GoogleFileMeta) -> List[GoogleFileMeta]:
         """

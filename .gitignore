@@ -14,3 +14,4 @@ data/credentials.json
 data/o365_token.txt
 
 *.log
+*.swp

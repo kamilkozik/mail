@@ -1,0 +1,235 @@
+EagleAI CH Dermatology
+      - name: country
+        value: CH
+      - name: ta
+        value: DERMATOLOGY
+      - name: customer
+        value: EagleAI
+      - name: deployment
+        value: kamil-plat-19-10
+      - name: lookup-service-environment
+        value: production
+      - name: skip-qa
+        value: 0
+      - name: package-name
+        value: test_kamil_ch_derma_plat_19
+      - name: package-deployment
+        value: test_kamil_ch_derma_plat_19_deployment
+      - name: fill-person-role
+        value: "Dermatologist"
+      - name: custom-scalar-type-prefix
+        value: "Dermatology-related"
+      - name: short-ta
+        value: Derma
+      - name: scores-json-files
+        value: "00_datasource_base_scores.json,10_digital_activity_scores.json,20_scientific_aggregate_scores.json"
+
+EagleAI CH Rheumatology
+      - name: country
+        value: CH
+      - name: ta
+        value: RHEUMATOLOGY
+      - name: customer
+        value: EagleAI
+      - name: deployment
+        value: kamil-plat-19-11
+      - name: lookup-service-environment
+        value: production
+      - name: skip-qa
+        value: 1
+      - name: package-name
+        value: test_kamil_ch_rheuma_plat_19
+      - name: package-deployment
+        value: test_kamil_ch_rheuma_plat_19_deployment
+      - name: fill-person-role
+        value: "Rheumatologist"
+      - name: custom-scalar-type-prefix
+        value: "None"
+      - name: short-ta
+        value: Rheuma
+      - name: scores-json-files
+        value: "00_datasource_base_scores.json,10_digital_activity_scores.json,20_scientific_aggregate_scores.json"
+
+EagleAI CH Oncology
+      - name: country
+        value: CH
+      - name: ta
+        value: ONCOLOGY
+      - name: customer
+        value: EagleAI
+      - name: deployment
+        value: kamil-plat-19-11
+      - name: lookup-service-environment
+        value: production
+      - name: skip-qa
+        value: 1
+      - name: package-name
+        value: test_kamil_ch_onco_plat_19
+      - name: package-deployment
+        value: test_kamil_ch_onco_plat_19_deployment
+      - name: fill-person-role
+        value: "Not selected Oncologist"
+      - name: custom-scalar-type-prefix
+        value: "Oncology-related"
+      - name: short-ta
+        value: Onco
+      - name: scores-json-files
+        value: "00_datasource_base_scores.json,10_digital_activity_scores.json,20_scientific_aggregate_scores.json"
+
+EagleAI CH Neurology
+      - name: country
+        value: CH
+      - name: ta
+        value: NEUROLOGY
+      - name: customer
+        value: EagleAI
+      - name: deployment
+        value: kamil-plat-19-11
+      - name: lookup-service-environment
+        value: production
+      - name: skip-qa
+        value: 1
+      - name: package-name
+        value: test_kamil_ch_neuro_plat_19
+      - name: package-deployment
+        value: test_kamil_ch_neuro_plat_19_deployment
+      - name: fill-person-role
+        value: "Not selected Neurologist"
+      - name: custom-scalar-type-prefix
+        value: "Neurology-related"
+      - name: short-ta
+        value: Neuro
+      - name: scores-json-files
+        value: "00_datasource_base_scores.json,10_digital_activity_scores.json,20_scientific_aggregate_scores.json,35_neurology_custom_scores.json"
+
+EagleAI CH Gastroenterology
+      - name: country
+        value: CH
+      - name: ta
+        value: GASTROENTEROLOGY
+      - name: customer
+        value: EagleAI
+      - name: deployment
+        value: kamil-plat-19-10
+      - name: lookup-service-environment
+        value: production
+      - name: skip-qa
+        value: 1
+      - name: package-name
+        value: test_kamil_ch_gastro_plat_19
+      - name: package-deployment
+        value: test_kamil_ch_gastro_plat_19_deployment
+      - name: fill-person-role
+        value: "Not selected Gastroenterologist"
+      - name: custom-scalar-type-prefix
+        value: "Gastroenterology-related"
+      - name: short-ta
+        value: Gastro
+      - name: scores-json-files
+        value: "00_datasource_base_scores.json,10_digital_activity_scores.json,20_scientific_aggregate_scores.json,36_gastro_custom_scores.json"
+
+
+EagleAI CH Hepatology
+      - name: country
+        value: CH
+      - name: ta
+        value: HEPATOLOGY
+      - name: customer
+        value: EagleAI
+      - name: deployment
+        value: kamil-plat-19-10
+      - name: lookup-service-environment
+        value: production
+      - name: skip-qa
+        value: 0
+      - name: package-name
+        value: test_kamil_ch_hepa_plat_19
+      - name: package-deployment
+        value: test_kamil_ch_hepa_plat_19_deployment
+      - name: fill-person-role
+        value: "Not selected Hepatologist"
+      - name: custom-scalar-type-prefix
+        value: "Hepatology related"
+      - name: short-ta
+        value: Hepa
+      - name: scores-json-files
+        value: "00_datasource_base_scores.json,10_digital_activity_scores.json,20_scientific_aggregate_scores.json,34_hepatology_custom_scores.json"
+
+EagleAI AT Neurology
+      - name: country
+        value: AT
+      - name: ta
+        value: NEUROLOGY
+      - name: customer
+        value: EagleAI
+      - name: deployment
+        value: kamil-plat-19-10
+      - name: lookup-service-environment
+        value: production
+      - name: skip-qa
+        value: 1
+      - name: package-name
+        value: test_kamil_at_neuro_plat_19
+      - name: package-deployment
+        value: test_kamil_at_neuro_plat_19_deployment
+      - name: fill-person-role
+        value: "Neurologist"
+      - name: custom-scalar-type-prefix
+        value: "Neurology-related"
+      - name: short-ta
+        value: Neuro
+      - name: scores-json-files
+        value: "00_datasource_base_scores.json,10_digital_activity_scores.json,21_eagle_ai_at_scientific_scores.json,35_neurology_custom_scores.json"
+
+EagleAI AT Ophthalmology
+      - name: country
+        value: AT
+      - name: ta
+        value: OPHTHALMOLOGY
+      - name: customer
+        value: EagleAI
+      - name: deployment
+        value: kamil-plat-19-10
+      - name: lookup-service-environment
+        value: production
+      - name: skip-qa
+        value: 1
+      - name: package-name
+        value: test_kamil_at_ophtha_plat_19
+      - name: package-deployment
+        value: test_kamil_at_ophtha_plat_19_deployment
+      - name: fill-person-role
+        value: "Ophthalmologist"
+      - name: custom-scalar-type-prefix
+        value: "None"
+      - name: short-ta
+        value: Ophtha
+      - name: scores-json-files
+        value: "00_datasource_base_scores.json,10_digital_activity_scores.json,21_eagle_ai_at_scientific_scores.json"
+
+EagleAI CH Ophthalmology
+      - name: country
+        value: CH
+      - name: ta
+        value: OPHTHALMOLOGY
+      - name: customer
+        value: EagleAI
+      - name: deployment
+        value: kamil-plat-19-10
+      - name: lookup-service-environment
+        value: production
+      - name: skip-qa
+        value: 0
+      - name: package-name
+        value: test_kamil_ch_ophtha_plat_19
+      - name: package-deployment
+        value: test_kamil_ch_ophtha_plat_19_deployment
+      - name: fill-person-role
+        value: "Not selected Ophthalmologist"
+      - name: custom-scalar-type-prefix
+        value: "Custom"
+      - name: short-ta
+        value: Ophtha
+      - name: scores-json-files
+        value: "00_datasource_base_scores.json,10_digital_activity_scores.json,20_scientific_aggregate_scores.json"
+
