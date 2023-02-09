@@ -16,7 +16,7 @@ click = "*"
 python-magic = "0.4.24"
 
 [dev-packages]
-ipython = "7.27.0"
+ipython = "7.31.1"
 
 [requires]
 python_version = "3.9"
