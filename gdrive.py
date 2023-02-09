@@ -13,7 +13,6 @@ from files import FileMeta, GoogleFileMeta, GoogleMimeTypes
 from logger import get_logger
 
 SCOPES = ['https://www.googleapis.com/auth/drive']
-# SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
 
 
 class MultipleFilesError(Exception):
@@ -21,7 +20,7 @@ class MultipleFilesError(Exception):
 
 
 class GoogleOAuth:
-    credentials = None
+    credentials: Credentials = None
 
     def _set_credentials(self, token_path: pathlib.Path) -> None:
         if token_path.exists() and token_path.is_file():
@@ -31,21 +30,20 @@ class GoogleOAuth:
     def _has_credentials(self) -> bool:
         return self.credentials is not None
 
+    def _refresh_credentials(self):
+        self.credentials.refresh(Request())
+
     def _login(self, token_path: pathlib.Path, credentials_path: pathlib.Path):
-        if self.credentials and self.credentials.expired and self.credentials.refresh_token:
-            self.credentials.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(str(credentials_path), SCOPES)
-            self.credentials = flow.run_local_server(port=0)
+        flow = InstalledAppFlow.from_client_secrets_file(str(credentials_path), SCOPES)
+        self.credentials = flow.run_local_server(port=0)
 
         with open(token_path, 'w') as token:
             token.write(self.credentials.to_json())
 
     def authorize(self, token_path: pathlib.Path, credentials_path: pathlib.Path):
-        if not self._has_credentials:
-            self._set_credentials(token_path)
+        self._set_credentials(token_path)
 
-        if not self.credentials or not self.credentials.valid:
+        if self.credentials.expired:
             self._login(token_path, credentials_path)
 
 

@@ -1,5 +1,4 @@
 import datetime
-import os
 import pathlib
 import smtplib
 from concurrent.futures import ThreadPoolExecutor
@@ -16,6 +15,7 @@ import O365.utils
 import pytz
 from O365 import FileSystemTokenBackend
 
+import settings
 from ksbr import download_ksbr_invoice
 from logger import get_logger
 from settings import O365_TOKEN_PATH
@@ -144,10 +144,12 @@ def send_mail(sender: str, recipients: List[str], subject: str, body: str, attac
     for att in attachments:
         message.attach(att)
 
+    email = settings.EMAIL["EMAIL"]
+    password = settings.EMAIL["PASSWORD"]
     smtp = smtplib.SMTP('smtp.office365.com', 587)
     smtp.ehlo()
     smtp.starttls()
-    smtp.login('kamil.kozik@outlook.com', '9d52cd9c49667e1b2078561715a62872')
+    smtp.login('kamil.kozik@outlook.com', 'Jj50n+xoAq?37U0EqO')
     smtp.sendmail(sender, recipients, message.as_string())
     smtp.close()
 

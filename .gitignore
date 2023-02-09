@@ -8,6 +8,7 @@ tmp/
 ./.pytest_cache/
 ./logs/
 
+.env
 *token.pickle
 *token.json
 data/credentials.json
